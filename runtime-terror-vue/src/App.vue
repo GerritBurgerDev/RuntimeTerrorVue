@@ -1,21 +1,26 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import Home from './components/Home/home-component.vue'
-</script>
-
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <Home msg="Hello Vue 3 + TypeScript + Vite" />
+  <v-app>
+    <v-main>
+      <HomeComponent msg="Runtime Terror Vue Demo"/>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<script lang="ts">
+import { defineComponent } from 'vue'
+import HomeComponent from "./components/Home/home-component.vue";
+
+export default defineComponent({
+  name: 'App',
+
+  components: {
+    HomeComponent,
+  },
+
+  data () {
+    return {
+      // None so far.
+    }
+  },
+})
+</script>
