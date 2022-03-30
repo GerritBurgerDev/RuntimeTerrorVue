@@ -1,0 +1,35 @@
+<template src="./state-demo-component.html"></template>
+<style src="./state-demo-component.scss"></style>
+
+<script setup lang="ts">
+// Imports
+import { ref } from 'vue';
+import logo from '../../assets/logo.svg';
+
+import { userTestStore } from "../../stores/test";
+import {storeToRefs} from "pinia";
+
+// Variables
+const props = defineProps<{ msg: string }>()
+const store = userTestStore();
+const count = ref(0); // Normal component state via ref.
+
+/* The following is how we can decouple the store variable while keeping it reactive.
+ * const { count } = storeToRefs(store);
+ */
+
+// Functions
+const incrementCount = (): void => {
+  count.value++;
+  store.count++;
+}
+
+const incrementWithAmount = (val: number): void => {
+  count.value += val;
+  store.count += val;
+}
+
+const resetStore = (): void => {
+  store.$reset();
+}
+</script>

@@ -1,0 +1,19 @@
+.nav {
+  &-container {
+    max-width: 100%;
+    padding: 0;
+
+    a {
+      margin-right: 10px;
+
+      &:hover {
+        color: #F44336 !important;
+      }
+    }
+  }
+}
+
+.v-toolbar-title {
+  cursor: pointer;
+  flex: 0.1 0;
+}
