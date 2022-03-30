@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <v-main>
-      <HomeComponent msg="Runtime Terror Vue Demo"/>
+      <router-view></router-view>
+      <v-btn @click="$router.push('/')">Go To About</v-btn>
+      <v-btn @click="$router.push('about')">Go To About</v-btn>
     </v-main>
   </v-app>
 </template>

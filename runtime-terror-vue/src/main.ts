@@ -2,7 +2,8 @@ import {createApp, watch} from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
-import { createPinia } from "pinia";
+import { createPinia } from 'pinia';
+import router from './scripts/router/index.js';
 
 loadFonts()
 
@@ -24,9 +25,9 @@ watch(
     { deep: true }
 )
 // END STATE PERSISTENCE BLOCK
-
 const app = createApp(App);
 
+app.use(router);
 app.use(vuetify);
 app.use(pinia);
 app.mount('#app');

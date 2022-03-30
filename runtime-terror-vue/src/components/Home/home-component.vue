@@ -18,28 +18,18 @@ const count = ref(0); // Normal component state via ref.
  * const { count } = storeToRefs(store);
  */
 
-const ecosystem =  ref([
-      {
-        text: 'vuetify-loader',
-        href: 'https://github.com/vuetifyjs/vuetify-loader',
-      },
-      {
-        text: 'github',
-        href: 'https://github.com/vuetifyjs/vuetify',
-      },
-      {
-        text: 'awesome-vuetify',
-        href: 'https://github.com/vuetifyjs/awesome-vuetify',
-      },
-    ]);
-
 // Functions
 const incrementCount = (): void => {
   count.value++;
   store.count++;
 }
+
 const incrementWithAmount = (val: number): void => {
   count.value += val;
   store.count += val;
+}
+
+const resetStore = (): void => {
+  store.$reset();
 }
 </script>
