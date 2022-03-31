@@ -2,34 +2,28 @@
 <style src="./home-component.scss"></style>
 
 <script setup lang="ts">
-// Imports
-import { ref } from 'vue';
-import logo from '../../assets/logo.svg';
+import {onBeforeMount, onUpdated, ref, watch} from "vue";
+  import {fetchProducts} from "../../services/fetchers";
+  import {userProductsStore} from "../../stores/productsStore";
 
-import { userTestStore } from "../../stores/test";
-import {storeToRefs} from "pinia";
+  const productStore = userProductsStore();
 
-// Variables
-const props = defineProps<{ msg: string }>()
-const store = userTestStore();
-const count = ref(0); // Normal component state via ref.
+  const products = ref([] as any[]);
+  const errorMessage = ref('');
 
-/* The following is how we can decouple the store variable while keeping it reactive.
- * const { count } = storeToRefs(store);
- */
+  /*
+   * Adding a watched to changed ref values -> like "useState()" in a sense
+   * more simplex watchers don't need the callback i.e. watch(stringVal, (new, old) => {});
+   */
+  watch(() => [...products.value], (newVal, oldVal) => {
+    productStore.setProducts(newVal);
+  });
 
-// Functions
-const incrementCount = (): void => {
-  count.value++;
-  store.count++;
-}
-
-const incrementWithAmount = (val: number): void => {
-  count.value += val;
-  store.count += val;
-}
-
-const resetStore = (): void => {
-  store.$reset();
-}
+  onBeforeMount(async () => {
+    try {
+      products.value = productStore.products ?? await fetchProducts();
+    } catch (error) {
+      errorMessage.value = 'Oh no!';
+    }
+  });
 </script>
