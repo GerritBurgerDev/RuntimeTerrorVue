@@ -1,11 +1,14 @@
 .nav {
   &-container {
-    max-width: 100%;
-    padding: 0;
+    max-width: 100% !important;
+    padding: 0 !important;
 
     a {
       margin-right: 10px;
 
+      :first-of-type {
+        margin-left: 30px;
+      }
       &:hover {
         color: #F44336 !important;
       }
@@ -15,5 +18,5 @@
 
 .v-toolbar-title {
   cursor: pointer;
-  flex: 0.1 0;
+  flex: 0.1 0 !important;
 }

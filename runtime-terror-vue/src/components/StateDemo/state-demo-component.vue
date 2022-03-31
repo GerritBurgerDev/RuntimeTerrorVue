@@ -1,4 +1,42 @@
-<template src="./state-demo-component.html"></template>
+<template>
+  <v-container>
+    <v-row class="text-center">
+      <v-col
+          class="mb-5"
+          cols="12"
+      >
+        <h2 class="headline font-weight-bold mb-5">
+          Store and State Test
+        </h2>
+
+        <div class="flex-row">
+          <span>Count (component): </span><span>{{ count }}</span>
+        </div>
+        <div class="flex-row">
+          <span>Count (store): </span><span>{{ store.count }}</span>
+        </div>
+        <div class="flex-row">
+          <span>Double Count (store): </span><span>{{ store.doubleCount }}</span>
+        </div>
+        <br/>
+        <v-btn @click="incrementCount">
+          Increment
+        </v-btn>
+        <v-btn @click="store.increment(1)">
+          Increment Store
+        </v-btn>
+        <v-btn @click="incrementWithAmount(4)">
+          Plus 4
+        </v-btn>
+        <br/>
+        <br/>
+        <v-btn @click="resetStore()">
+          Reset Store
+        </v-btn>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
 <style src="./state-demo-component.scss"></style>
 
 <script setup lang="ts">

@@ -2,60 +2,70 @@
   "products": [
     {
       "imageLink": "../../../public/favicon.ico",
+      "id": 1,
       "name": "Product",
       "description": "This is a product description",
       "price": 100
     },
     {
       "imageLink": "../../../public/favicon.ico",
+      "id": 2,
       "name": "Product",
       "description": "This is a product description",
       "price": 100
     },
     {
       "imageLink": "../../../public/favicon.ico",
+      "id": 3,
       "name": "Product",
       "description": "This is a product description",
       "price": 100
     },
     {
       "imageLink": "../../../public/favicon.ico",
+      "id": 4,
       "name": "Product",
       "description": "This is a product description",
       "price": 100
     },
     {
       "imageLink": "../../../public/favicon.ico",
+      "id": 5,
       "name": "Product",
       "description": "This is a product description",
       "price": 100
     },
     {
       "imageLink": "../../../public/favicon.ico",
+      "id": 6,
       "name": "Product",
       "description": "This is a product description",
       "price": 100
     },
     {
       "imageLink": "../../../public/favicon.ico",
+      "id": 7,
       "name": "Product",
       "description": "This is a product description",
       "price": 100
     },
     {
       "imageLink": "../../../public/favicon.ico",
+      "id": 8,
       "name": "Product",
       "description": "This is a product description",
       "price": 100
     },
     {
       "imageLink": "../../../public/favicon.ico",
+      "id": 9,
       "name": "Product",
       "description": "This is a product description",
       "price": 100
     },
     {
       "imageLink": "../../../public/favicon.ico",
+      "id": 10,
       "name": "Product",
       "description": "This is a product description",
       "price": 100
