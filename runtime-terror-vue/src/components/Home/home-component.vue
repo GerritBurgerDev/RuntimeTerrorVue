@@ -15,7 +15,7 @@
               {{ addProductError }}
             </span>
             <input v-model="searchValue" @input=""/>
-            <v-btn @click="addNewProduct">
+            <v-btn class="add-product-button" @click="addNewProduct">
               Add Product
             </v-btn>
           </div>
