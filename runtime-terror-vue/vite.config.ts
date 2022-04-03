@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vuetify from '@vuetify/vite-plugin'
-import VueTypeImports from 'vite-plugin-vue-type-imports'
 
 const fileHash = Math.floor(Math.random() * 90000) + 10000;
 
@@ -14,8 +13,7 @@ export default defineConfig({
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
     vuetify({
       autoImport: true,
-    }),
-    VueTypeImports(),
+    })
   ],
   define: { 'process.env': {} },
   resolve: {

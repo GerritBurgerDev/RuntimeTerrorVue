@@ -7,7 +7,9 @@
     "build": "vite build",
     "dev": "vite",
     "preview": "vite preview",
-    "test": "jest src"
+    "test": "jest src",
+    "test:e2e": "start-server-and-test dev http-get://localhost:8080 cypress",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
