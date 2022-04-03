@@ -38,7 +38,7 @@
       "name": "Product",
       "description": "This is a product description",
       "price": 100,
-      "removed": true
+      "removed": false
     },
     {
       "imageLink": "../../../public/favicon.ico",
@@ -46,7 +46,7 @@
       "name": "Heels",
       "description": "This is a product description",
       "price": 100,
-      "removed": true
+      "removed": false
     },
     {
       "imageLink": "../../../public/favicon.ico",
@@ -78,22 +78,6 @@
       "name": "Not Playstation",
       "description": "This is a product description",
       "price": 100,
-      "removed": false
-    },
-    {
-      "id": 11,
-      "name": "New item",
-      "imageLink": "../../../public/favicon.ico",
-      "description": "This is the description of the newly added item",
-      "price": 150,
-      "removed": true
-    },
-    {
-      "id": 12,
-      "name": "New item",
-      "imageLink": "../../../public/favicon.ico",
-      "description": "This is the description of the newly added item",
-      "price": 150,
       "removed": false
     }
   ]
