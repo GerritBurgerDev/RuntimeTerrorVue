@@ -1,12 +1,12 @@
 import { defineStore } from "pinia";
 
-export const userTestStore = defineStore("counter", {
+export const useCounterStore = defineStore("counter", {
     state: () => {
         /*
         * In here is where we define the variables to be used
         * within this store.
         */
-        return { count: 0 };
+        return { count: 0, counters: [1, 2, 3, 4] };
     },
     /*
      * The actions mutate the store variables in some way.

@@ -1,5 +1,33 @@
+@import "../../styles/_variables.scss";
+
+.table-actions-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  input {
+    outline: none;
+    height: 50px;
+    width: 100%;
+    padding: 0 10px;
+    margin-right: 20px;
+    border-bottom: solid $blue-primary;
+    background: rgba($gray-primary, 0.1);
+
+    &:hover {
+      border-bottom: solid $red-primary;
+      background: rgba($gray-primary, 0.2);
+    }
+
+    &:focus {
+      border-bottom: solid $red-primary;
+      background: rgba($gray-primary, 0.3);
+    }
+  }
+}
+
 button {
   &:hover {
-    color: #F44336;
+    color: $red-primary;
   }
 }

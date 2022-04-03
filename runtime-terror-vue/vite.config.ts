@@ -3,6 +3,8 @@ import vue from '@vitejs/plugin-vue'
 import vuetify from '@vuetify/vite-plugin'
 import VueTypeImports from 'vite-plugin-vue-type-imports'
 
+const fileHash = Math.floor(Math.random() * 90000) + 10000;
+
 const path = require('path')
 
 // https://vitejs.dev/config/

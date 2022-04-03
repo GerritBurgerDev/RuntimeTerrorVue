@@ -9,52 +9,21 @@
           Welcome to the RTV Example Demo!
         </h2>
 
-        <v-container v-if="!errorMessage">
-          <v-table
-              fixed-header
-          >
-            <thead>
-            <tr>
-              <th class="text-center">
-                <!-- Empty on purpose -->
-              </th>
-              <th class="text-center">
-                Name
-              </th>
-              <th class="text-center">
-                Description
-              </th>
-              <th class="text-center">
-                Price
-              </th>
-              <th class="text-center">
-              </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr
-                v-for="item in products"
-                :key="item.name"
-            >
-              <td class="text-center"><img :src="item.imageLink" alt="Image Load Error"/></td>
-              <td class="text-center">{{ item.name }}</td>
-              <td class="text-center">{{ item.description }}</td>
-              <td class="text-center">{{ item.price }}</td>
-              <td class="text-center">
-                <v-btn
-                    icon="mdi-delete"
-                    variant="plain"
-                    @click=""
-                >
-                  Remove
-                </v-btn>
-              </td>
-            </tr>
-            </tbody>
-          </v-table>
+        <v-container v-if="!fetchProductsError">
+          <div class="table-actions-container">
+            <span v-if="addProductError">
+              {{ addProductError }}
+            </span>
+            <input v-model="searchValue" @input=""/>
+            <v-btn @click="addNewProduct">
+              Add Product
+            </v-btn>
+          </div>
+
+          <products-table-component :loading="tableDataLoading" :products="searchValue ? filteredProducts : products"/>
         </v-container>
         <v-container v-else>
-          {{ errorMessage }}
+          {{ fetchProductsError }}
         </v-container>
       </v-col>
     </v-row>
@@ -63,33 +32,45 @@
 <style src="./home-component.scss"></style>
 
 <script setup lang="ts">
-  import {onBeforeMount, onUpdated, ref, watch} from "vue";
-  import {fetchProducts} from "../../services/fetchers";
+import {computed, onMounted, onUnmounted, ref, watch} from "vue";
   import {userProductsStore} from "../../stores/productsStore";
-  import Product from "../../models/StoreModels";
+  import ProductsTableComponent from "./ProductsTable/products-table-component.vue";
+  import {storeToRefs} from "pinia";
+  import {Product} from "@/src/models/StoreModels";
+  import useDebouncedRef from "../../services/product.service";
 
   const productStore = userProductsStore();
+  const { filteredProducts, tableDataLoading, fetchProductsError, addProductError } = storeToRefs(productStore);
 
-  const products = ref<Product[]>([]);
-  const errorMessage = ref('');
+  const searchValue = useDebouncedRef('');
 
-  /*
-   * Adding a watched to changed ref values -> like "useState()" in a sense
-   * more simplex watchers don't need the callback i.e. watch(stringVal, (new, old) => {});
-   */
-  watch(() => [...products.value], (newVal, oldVal) => {
-    productStore.setProducts(newVal);
+  const products = computed((): Product[] => {
+    return productStore.getProducts;
   });
 
-  onBeforeMount(async (): Promise<void> => {
-    products.value = productStore.products ?? await loadProducts();
-  });
+  const addNewProduct = (): void => {
+    const product: Product = {
+      id: productStore.latestId + 1,
+      name: 'New item',
+      imageLink: '../../../public/favicon.ico',
+      description: 'This is the description of the newly added item',
+      price: 150,
+      removed: false
+    };
 
-  const loadProducts = async (): Promise<Product[] | undefined> => {
-    try {
-      return await fetchProducts();
-    } catch (error) {
-      errorMessage.value = 'Oh no!';
-    }
+    productStore.addProduct(product);
   }
+
+  watch(searchValue, newSearchVal => {
+    searchProduct(newSearchVal);
+  })
+
+  const searchProduct = (value: string) => {
+    productStore.filterProducts(searchValue.value);
+  }
+
+  onMounted( () => {
+    productStore.$reset();
+    productStore.fetchProducts();
+  });
 </script>

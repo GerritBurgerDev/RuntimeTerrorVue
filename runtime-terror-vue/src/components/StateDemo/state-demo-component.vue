@@ -44,12 +44,12 @@
 import { ref } from 'vue';
 import logo from '../../assets/logo.svg';
 
-import { userTestStore } from "../../stores/test";
+import {useCounterStore} from "../../stores/counterStore";
 import {storeToRefs} from "pinia";
 
 // Variables
 const props = defineProps<{ msg: string }>()
-const store = userTestStore();
+const store = useCounterStore();
 const count = ref(0); // Normal component state via ref.
 
 /* The following is how we can decouple the store variable while keeping it reactive.

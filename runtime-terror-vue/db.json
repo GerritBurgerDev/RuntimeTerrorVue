@@ -3,72 +3,98 @@
     {
       "imageLink": "../../../public/favicon.ico",
       "id": 1,
-      "name": "Product",
+      "name": "T-Shirt",
       "description": "This is a product description",
-      "price": 100
+      "price": 100,
+      "removed": false
     },
     {
       "imageLink": "../../../public/favicon.ico",
       "id": 2,
-      "name": "Product",
+      "name": "Dress",
       "description": "This is a product description",
-      "price": 100
+      "price": 100,
+      "removed": false
     },
     {
       "imageLink": "../../../public/favicon.ico",
       "id": 3,
-      "name": "Product",
+      "name": "Sneakers",
       "description": "This is a product description",
-      "price": 100
+      "price": 100,
+      "removed": false
     },
     {
       "imageLink": "../../../public/favicon.ico",
       "id": 4,
-      "name": "Product",
+      "name": "Sneakers XL",
       "description": "This is a product description",
-      "price": 100
+      "price": 100,
+      "removed": false
     },
     {
       "imageLink": "../../../public/favicon.ico",
       "id": 5,
       "name": "Product",
       "description": "This is a product description",
-      "price": 100
+      "price": 100,
+      "removed": true
     },
     {
       "imageLink": "../../../public/favicon.ico",
       "id": 6,
-      "name": "Product",
+      "name": "Heels",
       "description": "This is a product description",
-      "price": 100
+      "price": 100,
+      "removed": true
     },
     {
       "imageLink": "../../../public/favicon.ico",
       "id": 7,
-      "name": "Product",
+      "name": "Some other product",
       "description": "This is a product description",
-      "price": 100
+      "price": 100,
+      "removed": false
     },
     {
       "imageLink": "../../../public/favicon.ico",
       "id": 8,
-      "name": "Product",
+      "name": "TV",
       "description": "This is a product description",
-      "price": 100
+      "price": 100,
+      "removed": false
     },
     {
       "imageLink": "../../../public/favicon.ico",
       "id": 9,
-      "name": "Product",
+      "name": "Xbox",
       "description": "This is a product description",
-      "price": 100
+      "price": 100,
+      "removed": false
     },
     {
       "imageLink": "../../../public/favicon.ico",
       "id": 10,
-      "name": "Product",
+      "name": "Not Playstation",
       "description": "This is a product description",
-      "price": 100
+      "price": 100,
+      "removed": false
+    },
+    {
+      "id": 11,
+      "name": "New item",
+      "imageLink": "../../../public/favicon.ico",
+      "description": "This is the description of the newly added item",
+      "price": 150,
+      "removed": true
+    },
+    {
+      "id": 12,
+      "name": "New item",
+      "imageLink": "../../../public/favicon.ico",
+      "description": "This is the description of the newly added item",
+      "price": 150,
+      "removed": false
     }
   ]
 }
