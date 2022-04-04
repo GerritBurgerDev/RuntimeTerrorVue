@@ -35,9 +35,10 @@
         v-for="item in products"
         :key="item.id"
         v-if="!loading"
+        data-cy="product-row"
     >
       <td class="text-center"><img :src="item.imageLink" alt="Image Load Error"/></td>
-      <td class="text-center">{{ item.name }}</td>
+      <td class="product-name text-center">{{ item.name }}</td>
       <td class="text-center">{{ item.description }}</td>
       <td class="text-center">{{ item.price }}</td>
       <td class="text-center">
@@ -45,6 +46,7 @@
             icon="mdi-delete"
             variant="plain"
             @click="removeProduct(item.id)"
+            data-cy="remove-product-button"
         >
           Remove
         </v-btn>

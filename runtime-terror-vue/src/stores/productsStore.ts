@@ -35,6 +35,8 @@ export const userProductsStore = defineStore("products", {
                 this.fetchProductsError = '';
                 this.tableDataLoading = false;
             }).catch((error: any) => {
+                this.allProducts = [];
+                this.products = [];
                 this.fetchProductsError = error.message;
                 this.tableDataLoading = false;
             });
