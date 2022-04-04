@@ -1,5 +1,3 @@
-import {products} from "./data/get-products";
-
 const getProducts = () => {
     return cy.get(`[data-cy="product-row"]`);
 }

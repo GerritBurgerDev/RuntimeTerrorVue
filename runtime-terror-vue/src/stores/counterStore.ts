@@ -6,7 +6,7 @@ export const useCounterStore = defineStore("counter", {
         * In here is where we define the variables to be used
         * within this store.
         */
-        return { count: 0, counters: [1, 2, 3, 4] };
+        return { count: 0 };
     },
     /*
      * The actions mutate the store variables in some way.
